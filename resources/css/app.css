@@ -2,9 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{
-    --color-green: rgba(95,187,126);
+:root {
+    --color-green: rgba(95, 187, 126);
     --color-white: #fff;
+    --gray-100: #f8f9fa;
+    --gray-200: #e9ecef;
+    --gray-300: #dee2e6;
+    --gray-400: #ced4da;
+    --gray-500: #adb5bd;
+    --gray-600: #6c757d;
+    --gray-700: #495057;
+    --gray-800: #343a40;
+    --gray-900: #212529;
 }
 
 .vote,
@@ -19,27 +28,67 @@
 
 .vote strong,
 .anwser strong,
-.counters strong{
+.counters strong {
     display: block;
     font-size: 2em;
 }
 
-.status.unanswered{
+.status.unanswered {
     border: none;
 }
-.status.answered{
+
+.status.answered {
     border: 1px solid var(--color-green);
     color: var(--color-green);
 }
-.status.answered-accepted{
+
+.status.answered-accepted {
     background-color: var(--color-green);
     color: var(--color-white);
 }
 
-.view{
+.view {
     margin-top: 10px;
 }
 
-.form-delete{
+.form-delete {
     display: inline-block;
+}
+
+.vote-controls {
+    min-width: 60px;
+    margin: 30px;
+    text-align: center;
+    color: var(--gray-700);
+}
+
+.vote-controls span,
+.vote-controls a {
+    display: block;
+}
+
+.vote-controls span.votes-count {
+    font-size: 25px;
+}
+
+.vote-controls span.favorites-count {
+    font-size: 12px;
+}
+
+.vote-controls a {
+    cursor: pointer;
+    color: var(--gray-600);
+}
+
+.vote-controls a.off,
+.vote-controls a:hover {
+    color: var(--gray-500);
+}
+
+.vote-controls a.favorited,
+.vote-controls a.favorited:hover {
+    color: var(--warning);
+}
+.vote-controls a.vote-accepted{
+    color: var(--success);
 }
