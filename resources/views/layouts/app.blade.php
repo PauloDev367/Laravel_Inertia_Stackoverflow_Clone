@@ -35,17 +35,9 @@
             </header>
         @endif
 
-        @if (Auth::user())
-            <main>
-                {{ $slot }}
-            </main>
-        @else
-            <main class="py-3">
-                @yield('content')
-            </main>
-        @endif
-
-        <!-- Page Content -->
+        <main class="py-3">
+            @yield('content')
+        </main>
     </div>
 </body>
 

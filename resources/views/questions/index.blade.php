@@ -9,8 +9,7 @@
                         <div class="d-flex align-items-center">
                             <h2>All questions</h2>
                             <div class="ml-auto">
-                                <a href="{{ route('questions.create') }}" 
-                                class="btn btn-outline-secondary">
+                                <a href="{{ route('questions.create') }}" class="btn btn-outline-secondary">
                                     Ask Question
                                 </a>
                             </div>
@@ -19,6 +18,7 @@
                     </div>
 
                     <div class="card-body">
+                        <x-messages />
                         @foreach ($questions as $question)
                             <div class="media">
                                 <div class="d-flex flex-column counters">
