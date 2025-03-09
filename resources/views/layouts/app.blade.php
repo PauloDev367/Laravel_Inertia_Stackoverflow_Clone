@@ -22,9 +22,9 @@
 
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100">
-        @if (Auth::user())
+        {{-- @if (Auth::user())
             @include('layouts.navigation')
-        @endif
+        @endif --}}
 
         <!-- Page Heading -->
         @if (isset($header))
