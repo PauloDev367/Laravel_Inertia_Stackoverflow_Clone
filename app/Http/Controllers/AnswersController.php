@@ -27,17 +27,26 @@ class AnswersController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Answer $answer)
+    public function edit(Question $question, Answer $answer)
     {
-        //
+        $this->authorize('update', $answer);
+
+        return view('answers.edit', compact('question', 'answer'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Answer $answer)
+    public function update(Question $question, Request $request, Answer $answer)
     {
-        //
+        $this->authorize('update', $answer);
+        $answer->update($request->validate([
+            'body' => 'required',
+        ]));
+
+        return redirect()
+            ->route('questions.show', $question->slug)
+            ->with('success', 'Your answer has benn updated');
     }
 
     /**

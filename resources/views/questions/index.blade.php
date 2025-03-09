@@ -64,7 +64,6 @@
                                                     </button>
                                                 </form>
                                             @endcan
-
                                         </div>
                                     </div>
                                     <p class="lead">
