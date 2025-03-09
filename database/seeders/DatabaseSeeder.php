@@ -1,8 +1,8 @@
 <?php
 
 namespace Database\Seeders;
-
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Question;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,11 +12,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        User::factory(3)->create()->each(function ($user) {
+            // Criando entre 1 e 5 perguntas para cada usuário
+            $questions = Question::factory(rand(1, 5))->make();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+            // Salvando as perguntas associadas ao usuário
+            $user->questions()->saveMany($questions);
+        });
     }
 }
