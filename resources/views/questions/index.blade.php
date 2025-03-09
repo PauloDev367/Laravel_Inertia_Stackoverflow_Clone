@@ -5,7 +5,18 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">All questions</div>
+                    <div class="card-header">
+                        <div class="d-flex align-items-center">
+                            <h2>All questions</h2>
+                            <div class="ml-auto">
+                                <a href="{{ route('questions.create') }}" 
+                                class="btn btn-outline-secondary">
+                                    Ask Question
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
 
                     <div class="card-body">
                         @foreach ($questions as $question)
@@ -13,18 +24,18 @@
                                 <div class="d-flex flex-column counters">
                                     <div class="vote">
                                         <strong>
-                                            {{ $question->votes }} 
+                                            {{ $question->votes }}
                                         </strong>
-                                        {{Str::plural('vote', $question->votes)}}
+                                        {{ Str::plural('vote', $question->votes) }}
                                     </div>
-                                    <div class="status {{$question->status}}">
+                                    <div class="status {{ $question->status }}">
                                         <strong>
-                                            {{ $question->answers }} 
+                                            {{ $question->answers }}
                                         </strong>
-                                        {{Str::plural('answer', $question->answers)}}
+                                        {{ Str::plural('answer', $question->answers) }}
                                     </div>
                                     <div class="view">
-                                            {{ $question->views . " " . Str::plural('view', $question->views)}}
+                                        {{ $question->views . ' ' . Str::plural('view', $question->views) }}
                                     </div>
                                 </div>
                                 <div class="media-body">
