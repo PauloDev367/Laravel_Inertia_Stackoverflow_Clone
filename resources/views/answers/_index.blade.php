@@ -20,7 +20,7 @@
                             <a href="#" title="This answer is not useful" class="vote-down off">
                                 <i class="fa-solid fa-caret-down fa-3x""></i>
                             </a>
-                            <a href="#" title="Mark this answer as best answer" class="vote-accepted mt-2">
+                            <a href="#" title="Mark this answer as best answer" class="{{$answer->status}} mt-2">
                                 <i class="fa-solid fa-check fa-2x"></i>
                                 <span class="favorites-count">123</span>
                             </a>
