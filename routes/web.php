@@ -18,7 +18,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('questions',QuestionsController::class);
+
+Route::resource('questions',QuestionsController::class)
+    ->except('show');
+Route::get('/questions/{slug}', [QuestionsController::class, 'show'])
+    ->name('questions.show');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
