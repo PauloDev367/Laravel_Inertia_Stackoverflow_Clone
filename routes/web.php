@@ -1,8 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AnswersController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuestionsController;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,11 +20,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('questions',QuestionsController::class)
+Route::resource('questions', QuestionsController::class)
     ->except('show');
 Route::get('/questions/{slug}', [QuestionsController::class, 'show'])
     ->name('questions.show');
 
+// Route::post('/questions/{question}/answers', [AnswersController::class, 'store'])
+//     ->name('answers.store');
+Route::resource('questions.answers', AnswersController::class)->except(['index', 'create', 'show']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -35,4 +39,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
