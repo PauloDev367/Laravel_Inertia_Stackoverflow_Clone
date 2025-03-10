@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\AcceptAnswerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnswersController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FavoritesController;
 use App\Http\Controllers\QuestionsController;
+use App\Http\Controllers\AcceptAnswerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +27,10 @@ Route::resource('questions', QuestionsController::class)
 Route::get('/questions/{slug}', [QuestionsController::class, 'show'])
     ->name('questions.show');
 
-// Route::post('/questions/{question}/answers', [AnswersController::class, 'store'])
-//     ->name('answers.store');
 Route::resource('questions.answers', AnswersController::class)->except(['index', 'create', 'show']);
+Route::post('/questions/{question}/favorites', [FavoritesController::class, 'store'])->name('questions.favorite');
+Route::delete('/questions/{question}/favorites', [FavoritesController::class, 'destroy'])->name('questions.unfavorite');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
