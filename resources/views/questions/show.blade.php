@@ -30,9 +30,8 @@
                                     @csrf
                                     <input type="hidden" name="vote" value="1">
                                 </form>
+
                                 <span class="votes-count">{{ $question->votes_count }}</span>
-                                
-                                
                                 
                                 <a href="#" title="This question is not useful" class="vote-down {{ Auth::guest() ? 'off' : '' }}"
                                     onclick="event.preventDefault();document.getElementById('down-vote-question-{{ $question->id }}').submit();">
