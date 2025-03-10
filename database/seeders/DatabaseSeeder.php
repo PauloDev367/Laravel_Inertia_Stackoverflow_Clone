@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use App\Models\Answer;
 use App\Models\Question;
-use App\Models\User;
 use Illuminate\Database\Seeder;
+use Database\Seeders\VotablesTableSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,6 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserQuestionsAnswersTableSeeder::class,
             FavoritesTableSeeder::class,
+            VotablesTableSeeder::class
         ]);
 
         // User::factory(3)->create()->each(function ($user) {

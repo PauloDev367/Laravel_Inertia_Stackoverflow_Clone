@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FavoritesController;
 use App\Http\Controllers\QuestionsController;
 use App\Http\Controllers\AcceptAnswerController;
+use App\Http\Controllers\VoteQuestionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,7 @@ Route::get('/questions/{slug}', [QuestionsController::class, 'show'])
 Route::resource('questions.answers', AnswersController::class)->except(['index', 'create', 'show']);
 Route::post('/questions/{question}/favorites', [FavoritesController::class, 'store'])->name('questions.favorite');
 Route::delete('/questions/{question}/favorites', [FavoritesController::class, 'destroy'])->name('questions.unfavorite');
-
+Route::post('/questions/{question}/vote', VoteQuestionController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
