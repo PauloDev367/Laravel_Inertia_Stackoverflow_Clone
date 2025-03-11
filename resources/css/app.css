@@ -89,6 +89,12 @@
 .vote-controls a.favorited:hover {
     color: var(--warning);
 }
-.vote-controls a.vote-accepted{
+
+.vote-controls a.vote-accepted {
     color: var(--success);
+}
+
+.post {
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(#000, .1);
 }
