@@ -20,9 +20,7 @@ use App\Http\Controllers\VoteQuestionController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [QuestionsController::class, 'index']);
 
 Route::resource('questions', QuestionsController::class)
     ->except('show');
@@ -36,7 +34,7 @@ Route::post('/questions/{question}/vote', VoteQuestionController::class);
 Route::post('/answers/{answer}/vote', VoteAnswerController::class);
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return redirect('/');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::post('/answers/{answer}/accept', AcceptAnswerController::class)->name('answers.accept');

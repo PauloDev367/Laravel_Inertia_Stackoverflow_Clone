@@ -19,7 +19,7 @@
 
                     <div class="card-body">
                         <x-messages />
-                        @foreach ($questions as $question)
+                        @forelse ($questions as $question)
                             <div class="media">
                                 <div class="d-flex flex-column counters">
                                     <div class="vote">
@@ -81,7 +81,11 @@
                                 </div>
                             </div>
                             <hr>
-                        @endforeach
+                        @empty
+                            <div class="alert alert-warning">
+                                <strong>Sorry</strong> there are no questions available.
+                            </div>
+                        @endforelse
                         <div class="mt-5">
                             {{ $questions->links() }}
                         </div>
